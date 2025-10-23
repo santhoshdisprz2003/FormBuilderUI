@@ -1,0 +1,28 @@
+.draggable-field {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: grab;
+  transition: background 0.2s ease;
+}
+
+.draggable-field:hover {
+  background: #f8f9fb;
+}
+
+.draggable-field .label {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  background-color: #ccc;
+  border-radius: 4px;
+}
