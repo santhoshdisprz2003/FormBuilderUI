@@ -174,9 +174,45 @@ input:checked + .slider:before {
 
 .footer-buttons {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
+   position: sticky;
+  bottom: 0;
+  background-color: #f8f8f8;
+  padding: 15px 0;
+  z-index: 10;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-right-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.preview-btn {
+  display: flex;
+  align-items: left !important;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preview-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.preview-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .draft-btn,

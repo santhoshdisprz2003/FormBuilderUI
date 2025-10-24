@@ -46,6 +46,11 @@ export default function FormList({
     return "draft"; // default
   };
 
+  // Check if form is published
+  const isPublished = (status) => {
+    return status === 1 || status === "1";
+  };
+
   return (
     <div className="container">
       <div className="header">
@@ -100,14 +105,27 @@ export default function FormList({
               </div>
             </div>
 
-           <div className="card-meta">
+            <div className="card-meta">
+              {isPublished(form?.status) ? (
+                <>
+                  <p className="meta-text">
+                    Published by: {form?.publishedBy || "admin"}
+                  </p>
+                  <p className="meta-text">
+                    Published Date: {formatDate(form?.publishedAt)}
+                  </p>
+                </>
+              ) : (
+                <>
                   <p className="meta-text">
                     Created by: {form?.createdBy || "Unknown"}
                   </p>
                   <p className="meta-text">
-                    Created Date:{formatDate(form?.createdAt)}
+                    Created Date: {formatDate(form?.createdAt)}
                   </p>
-                </div>
+                </>
+              )}
+            </div>
 
             <div className="card-footer">
               

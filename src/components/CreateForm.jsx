@@ -34,6 +34,11 @@ export default function CreateForm() {
   const handleDelete = (index) => setFields(fields.filter((_, i) => i !== index));
   const handleCopy = (index) => setFields([...fields, { ...fields[index], id: Date.now() }]);
 
+  const handlePreview = () => {
+    console.log("Preview form");
+    // Add your preview logic here
+  };
+
   return (
     <div className="create-form-container">
       {/* Breadcrumb */}
@@ -81,7 +86,7 @@ export default function CreateForm() {
             <label htmlFor="formDesc">Form Description</label>
             <textarea
               id="formDesc"
-              placeholder="Summarize the form’s purpose for internal reference."
+              placeholder="Summarize the form's purpose for internal reference."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               maxLength={200}
@@ -165,19 +170,26 @@ export default function CreateForm() {
 
       {/* FOOTER */}
       <div className="footer-buttons">
-        <button className="draft-btn">Save as draft</button>
+        <button className="preview-btn" onClick={handlePreview}>
+          <span className="preview-icon">👁️</span>
+          Preview
+        </button>
+        
+        <div className="footer-right-buttons">
+          <button className="draft-btn">Save as draft</button>
 
-        {activeTab === "configuration" ? (
-          <button
-            className="next-btn"
-            onClick={() => setActiveTab("layout")}
-            disabled={!formName.trim()}
-          >
-            Next
-          </button>
-        ) : (
-          <button className="publish-btn">Publish Form</button>
-        )}
+          {activeTab === "configuration" ? (
+            <button
+              className="next-btn"
+              onClick={() => setActiveTab("layout")}
+              disabled={!formName.trim()}
+            >
+              Next
+            </button>
+          ) : (
+            <button className="publish-btn">Publish Form</button>
+          )}
+        </div>
       </div>
     </div>
   );
